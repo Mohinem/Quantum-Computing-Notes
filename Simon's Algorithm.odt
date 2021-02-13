@@ -1,0 +1,57 @@
+﻿Simon’s Problem-
+
+Given a 2 to 1 function f(x) such that f(x)=f(x xor s), find s.
+
+Solution-
+
+Basic solution-
+
+1. Set up a random superposition 1/sqrt(2)|r> + 1/sqrt(2)|r^s>
+
+2. Fourier sample (hadamard gate) to get a random y : y.s = 0 (mod 2)
+
+3. Repeat steps n-1 times to generate n-1 linear equations in s.
+
+Solve for s. (Gaussian elimination)
+
+Circuit Diagram :-
+
+
+
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ State after first Hadamard transform :-
+
+
+
+After that, we run a query that copies f(x) on the 2nd register. State after measurement :-
+
+
+
+
+Now, we Fourier sample the above state (1st n qubits). We get the following thing-
+
+
+
+
+
+
+
+Now, beta y is of the form-
+
+
+
+Now, after sampling, we measure the first first register of n qubits. With equal probability, it will collaps to the state y. Hence, we’ll have the following cases -
+
+
+
+In the end, we get one linear equation (modulo 2).
